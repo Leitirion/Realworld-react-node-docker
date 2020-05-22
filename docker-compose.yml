@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+  api:
+    container_name: api
+    hostname: api
+    build:
+      context: Realworld-node-docker
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3100:3100"
+    links:
+      - mongo
+  web:
+    environment:
+        - API_ROOT=http://api:3000/api
+    build:
+      context: Realworld-react-docker
+      dockerfile: Dockerfile
+    ports:
+     - "80:80"
+    links:
+      - api
+    tty: true
+   
