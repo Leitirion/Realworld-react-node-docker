@@ -8,7 +8,7 @@ if (process.env.API_ROOT) {
   API_ROOT = process.env.API_ROOT;
 }
 else {
-  API_ROOT = 'http://localhost:3000/api';
+  API_ROOT = 'http://51.15.199.91:3000/api';
 }
 
 
