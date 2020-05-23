@@ -16,11 +16,11 @@ A:
 - Rename env ```API_ROOT``` to ```REACT_APP_API_ROOT```
 - Open ```agent.js``` in frontend app and rename in ```process.env.API_ROOT``` to ```process.env.REACT_APP_API_ROOT```
 
-- ### on local app:
+### on local app:
 - Create ```.env.local``` in root folder with: ```API_ROOT=http://api:3000/api```
 - Rename enviroment in ```docker-compose.yml```: ```API_ROOT=http://api:3000/api``` to ```REACT_APP_API_ROOT=${API_ROOT}```
 
-- ### on server:
+### on server:
 - Clone repo with new env with command: ```git clone https://github.com/Leitirion/Realworld-react-node-docker.git```
 - Create .env with command: ```echo "API_ROOT=http://devmates.me:3000/api" > .env```
 - Delete all old images for mongo and api with command: ```docker rm IMAGE_ID```
