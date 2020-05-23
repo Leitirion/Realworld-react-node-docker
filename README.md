@@ -1,4 +1,4 @@
-### Realworld rect-node-docker
+### Realworld react-node-docker
 
 # Table of contents
 - Maintainers:
