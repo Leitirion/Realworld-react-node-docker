@@ -1,3 +1,5 @@
+### How to deploy app
+
 1. Create instance in ```scaleway```, choose OS images and hardware.
 2. Create SSH-key with ```https://www.notion.so/Learning-sources-ffb80890fe114f40aef1225bf17bdd27#acb5fbfba5384ab9a87b5e80e34ceac4```
 3. To start work on server, open terminal and paste ```ssh root@YOUR_IP```
