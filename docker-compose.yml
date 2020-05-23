@@ -14,12 +14,12 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "3100:3100"
+      - "3000:3000"
     links:
       - mongo
   web:
     environment:
-        - API_ROOT=http://api:3000/api
+        - REACT_APP_API_ROOT=${API_ROOT}
     build:
       context: Realworld-react-docker
       dockerfile: Dockerfile

@@ -3,12 +3,12 @@ import _superagent from 'superagent';
 const superagent = superagentPromise(_superagent, global.Promise);
 let API_ROOT;
 console.log('start');
-if (process.env.API_ROOT) {
+if (process.env.REACT_APP_API_ROOT) {
 
-  API_ROOT = process.env.API_ROOT;
+  API_ROOT = process.env.REACT_APP_API_ROOT;
 }
 else {
-  API_ROOT = 'http://51.15.199.91:3000/api';
+  API_ROOT = 'http://localhost:3000/api';
 }
 
 
