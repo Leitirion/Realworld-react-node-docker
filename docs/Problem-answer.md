@@ -4,15 +4,15 @@
     A: open running processes on server with terminal command: ```ps -aux``` (https://www.cyberciti.biz/faq/how-to-check-running-process-in-ubuntu-using-command-line/). 
     Then find process and stop it with command: ```kill YOUR_PROCESS_PID```.
     Start docker compose again in background with: ```docker-compose up -d```
-# 3. Frontend (react) can't connect to backend (node) with env in ```docker-compose.yml```
+### 3. Frontend (react) can't connect to backend (node) with env in ```docker-compose.yml```
     A: Rename env ```API_ROOT``` to ```REACT_APP_API_ROOT```
     Open ```agent.js``` in frontend app and rename in ```process.env.API_ROOT``` to ```process.env.REACT_APP_API_ROOT```
 
-    ### on local app:
+    on local app:
     Create ```.env.local``` in root folder with: ```API_ROOT=http://api:3000/api```
     Rename enviroment in ```docker-compose.yml```: ```API_ROOT=http://api:3000/api``` to ```REACT_APP_API_ROOT=${API_ROOT}```
 
-    ### on server:
+    on server:
     clone repo with new env with command: ```git clone https://github.com/Leitirion/Realworld-react-node-docker.git```
     create .env with command: echo "API_ROOT=http://devmates.me:3000/api" > .env
     Delete all old images for mongo and api with command: docker rm IMAGE_ID
