@@ -1,3 +1,4 @@
+
 var http = require('http'),
   path = require('path'),
   methods = require('methods'),
@@ -13,6 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 // Create global app object
 var app = express();
+
 
 app.use(cors());
 
@@ -86,3 +88,4 @@ app.use(function (err, req, res, next) {
 var server = app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port ' + server.address().port);
 });
+
