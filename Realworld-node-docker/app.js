@@ -1,4 +1,7 @@
 
+const Sentry = require('@sentry/node');
+
+
 var http = require('http'),
   path = require('path'),
   methods = require('methods'),
@@ -88,4 +91,10 @@ app.use(function (err, req, res, next) {
 var server = app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port ' + server.address().port);
 });
-
+Sentry.init({
+  dsn: process.env.NODE_DSN,
+  integrations: function (integrations) {
+    // integrations will be all default integrations
+    return integrations.concat(new MyCustomIntegrations());
+  }
+});
