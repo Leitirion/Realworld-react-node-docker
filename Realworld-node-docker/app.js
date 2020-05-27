@@ -92,7 +92,7 @@ var server = app.listen(process.env.PORT || 3000, function () {
   console.log('Listening on port ' + server.address().port);
 });
 Sentry.init({
-  dsn: process.env.NODE_DSN,
+  dsn: process.env.DSN1,
   integrations: function (integrations) {
     // integrations will be all default integrations
     return integrations.concat(new MyCustomIntegrations());
