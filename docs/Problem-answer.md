@@ -25,3 +25,6 @@ A:
 - Create .env with command: ```echo "API_ROOT=http://devmates.me:3000/api" > .env```
 - Delete all old images for mongo and api with command: ```docker rm IMAGE_ID```
 - Create and start new images: ```docker-compose up --build -d```
+
+## 4. Change http to https:
+A: 
