@@ -1,4 +1,4 @@
-### Problems and answers
+### F.A.Q.
 
 ## 1. docker-compose exited with code 0
 A: 
