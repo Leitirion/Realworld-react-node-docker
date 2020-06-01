@@ -7,8 +7,6 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import * as Sentry from '@sentry/browser';
 import App from './components/App';
-
-
 Sentry.init({
   dsn: process.env.REACT_APP_DSN
 });
