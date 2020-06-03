@@ -28,5 +28,3 @@ A:
 
 ## 4. Change http to https:
 A: 
--
--
