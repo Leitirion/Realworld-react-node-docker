@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "269e2c95-f825-46d5-8278-9d0a164fee3c",
+		"name": "Realworld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-realworld-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e4e50a-7405-4fb8-93c7-ae34933ab9fe",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main-page}}",
+					"host": [
+						"{{main-page}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-realworld-signin-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c266ab85-6e07-402a-b8a3-35308e5d2f2f",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable('token', jsonData.user.token);",
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+							"pm.test(\"After sign in username should be leitirion\", function () { pm.expect(pm.response.text(\"username\")).to.include(\"leitirion\"); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user\":{\"email\":\"{{username}}\",\"password\":\"{{password}}\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url-login}}",
+					"host": [
+						"{{url-login}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-realworld-creating-post-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "adf90758-45bc-4032-a2dd-f83a261337cb",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable('post-id', jsonData.article.slug);",
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+							"pm.test(\"Post name should be - It's my first test post.\", function () { pm.expect(pm.response.text(\"body\")).to.include(\"It's my first test post.\"); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"article\": {\"title\": \"test post\", \"description\": \"test\", \"body\": \"It's my first test post.\", \"tagList\": [\"test\"]}\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://devmates.me:3000/api/articles",
+					"protocol": "http",
+					"host": [
+						"devmates",
+						"me"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-realworld-verify-username-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef1064c5-b93c-41b6-b1b2-a80ee9f567c2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+							"pm.test(\"After sign in username should be leitirion\", function () { pm.expect(pm.response.text(\"username\")).to.include(\"leitirion\"); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-user}}",
+					"host": [
+						"{{url-user}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-realworld-verify-post-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7d13786-4475-40e6-af34-aca400a9cd62",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+							"pm.test(\"Test '\" + pm.variables.get(\"post-id\") + \"' post should be in home page\", function () {",
+							"    pm.expect(pm.response.text(\"slug\")).to.include(pm.variables.get(\"post-id\")); ",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://devmates.me:3000/api/articles?limit=10&offset=0",
+					"protocol": "http",
+					"host": [
+						"devmates",
+						"me"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
