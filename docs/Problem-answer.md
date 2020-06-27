@@ -28,3 +28,13 @@ A:
 
 ## 4. Change http to https:
 A: {TBD}
+
+## 5. How to use postman with newman to create api tests:
+A:
+- Create some tests in postman. You cna use some env.
+- Export your tests from postman app to file with ```YOUR-POSTMAN-PROJECT-TESTS,json``` format.
+- Export ypur env to file with ```YOUR-POSTMAN-PROJECT-ENV,json``` format.
+- Save this two files to your project.
+- install newmman with command: ```npm i -g newman```.
+- Create command in your ```package.json``` in scripts: ```"test": "newman run ./YOUR-POSTMAN-PROJECT-TESTS.json -e ./YOUR-POSTMAN-PROJECT-ENV,json"```
+- run tests with command: ```npm run test```
