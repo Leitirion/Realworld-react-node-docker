@@ -27,7 +27,8 @@ A:
 - Create and start new images: ```docker-compose up --build -d```
 
 ## 4. Change http to https:
-A: {TBD}
+A: 
+- {TBD}
 
 ## 5. How to use postman with newman to create api tests:
 A:
