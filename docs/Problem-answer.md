@@ -27,8 +27,7 @@ A:
 - Create and start new images: ```docker-compose up --build -d```
 
 ## 4. Change http to https:
-A: 
-- {TBD}
+A: {TBD}
 
 ## 5. How to use postman with newman to create api tests:
 A:
@@ -38,4 +37,4 @@ A:
 - Save this two files to your project.
 - install newmman with command: ```npm i -g newman```.
 - Create command in your ```package.json``` in scripts: ```"test": "newman run ./YOUR-POSTMAN-PROJECT-TESTS.json -e ./YOUR-POSTMAN-PROJECT-ENV,json"```
-- run tests with command: ```npm run test```
+- run tests with command: ```npm run test.
