@@ -4,6 +4,8 @@ services:
     container_name: mongo
     hostname: mongo
     image: mongo
+    volumes:
+      - mongodata:/data/db
     ports:
       - "27017:27017"
   api:
@@ -28,4 +30,6 @@ services:
     links:
       - api
     tty: true
+volumes:
+  mongodata:
    
