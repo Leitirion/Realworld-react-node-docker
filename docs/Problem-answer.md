@@ -38,7 +38,7 @@ A:
 - Save this two files to your project.
 - install newmman with command: ```npm i -g newman```.
 - Create command in your ```package.json``` in scripts: ```"test": "newman run ./YOUR-POSTMAN-PROJECT-TESTS.json -e ./YOUR-POSTMAN-PROJECT-ENV,json"```
-- run tests with command: ```npm run test.
+- run tests with command: ```npm run test```.
 
 ## 6. Error: algorithms should be set at module.exports (.../exports-jwt) (backend dont start or crash with error)
 A:
