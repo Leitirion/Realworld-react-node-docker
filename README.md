@@ -2,10 +2,6 @@
 
 # Table of contents
 - Maintainers:
-
-  [github.com/mikementor](https://github.com/mikementor)
-
-  	
 		
   [github.com/leitirion](https://github.com/leitirion)
   
